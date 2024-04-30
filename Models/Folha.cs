@@ -42,6 +42,11 @@
         public string FuncionarioId { get; set; }
     }
 
+    public void calcularSalarioBruto(float ValorHora, int QuantidadeHora)
+    {
+        SalarioBruto = ValorHora * QuantidadeHora;
+    }
+
 
 
 }
