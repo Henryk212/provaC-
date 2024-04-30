@@ -54,7 +54,7 @@ app.MapPost("/api/folha/cadastrar", ([FromBody] Folha folha, [FromServices] AppD
     Funcionarios? funcionario = context.Funcionario.FirstOrDefault(x => x.Id == folha.FuncionarioId);
     if (funcionario is not null)
     {
-       
+        folha.calcularSalarioBruto(folha.ValorHora, folha.QuantidadeHora);
         context.Folhas.Add(folha);
         context.SaveChanges();
         return Results.Created($"/api/folha/buscar/{folha.Id}", folha);
